@@ -109,6 +109,10 @@ int main(int argc, char *argv[])
 	}
 #endif
 
+#ifdef IOS
+    SDL_SetHint(SDL_HINT_ACCELEROMETER_AS_JOYSTICK, "0");
+#endif
+    
 	setSystemRam();
 	initSDL();
 

@@ -70,7 +70,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 #ifndef PP_TEST
-#define printf writeToLogFile
+//#define printf writeToLogFile
 
 // redefine assert to write to the log file and exit nicely instead of aborting
 #undef assert

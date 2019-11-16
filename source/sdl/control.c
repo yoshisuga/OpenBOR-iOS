@@ -212,7 +212,7 @@ void getPads(Uint8* keystate, Uint8* keystate_def)
 						//if(lastjoy) fprintf(stderr, "SDL_JOYHATMOTION - Joystick %i Hat %i (Index %i)\n", i, ev.jhat.hat, lastjoy);
 
 						// add key flag from event (0x01 0x02 0x04 0x08)
-						#ifdef ANDROID
+						#if defined(ANDROID) || defined(IOS)
 						if(ev.jhat.value & SDL_HAT_UP)      joysticks[i].Hats |= SDL_HAT_UP         << (ev.jhat.hat*4);
 						if(ev.jhat.value & SDL_HAT_RIGHT)   joysticks[i].Hats |= SDL_HAT_RIGHT      << (ev.jhat.hat*4);
 						if(ev.jhat.value & SDL_HAT_DOWN)    joysticks[i].Hats |= SDL_HAT_DOWN       << (ev.jhat.hat*4);
@@ -234,7 +234,7 @@ void getPads(Uint8* keystate, Uint8* keystate_def)
 						//if(lastjoy) fprintf(stderr, "SDL_JOYAXISMOTION - Joystick %i Axis %i = Position %i (Index %i)\n", i, ev.jaxis.axis, ev.jaxis.value, lastjoy);
 
 						// add key flag from event
-						#ifdef ANDROID
+						#if defined(ANDROID) || defined(IOS)
                         if(ev.jaxis.value < -1*T_AXIS)  { joysticks[i].Axes |= 0x01 << (ev.jaxis.axis*2); }
                         if(ev.jaxis.value >    T_AXIS)  { joysticks[i].Axes |= 0x02 << (ev.jaxis.axis*2); }
                         #endif
@@ -942,7 +942,7 @@ void control_update(s_playercontrols ** playercontrols, int numplayers)
 		pcontrols->newkeyflags = k & (~pcontrols->keyflags);
 		pcontrols->keyflags = k;
 
-		//if (player <= 0) debug_printf("hats: %d, axes: %d, data: %d",joysticks[0].Hats,joysticks[0].Axes,joysticks[0].Data);
+		printf("player=%i: hats: %d, axes: %d, data: %d \n",player,joysticks[player].Hats,joysticks[player].Axes,joysticks[player].Data);
 	}
 }
 
