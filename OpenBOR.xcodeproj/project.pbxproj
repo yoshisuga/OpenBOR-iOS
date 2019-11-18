@@ -1328,6 +1328,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = R72X3BF4KE;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1355,6 +1356,7 @@
 				);
 				PRODUCT_NAME = OpenBOR;
 				USER_HEADER_SEARCH_PATHS = "../../../include $(SRCROOT)/** $(SRCROOT)/VPX.framework/Headers";
+				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -1366,6 +1368,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = R72X3BF4KE;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1391,6 +1394,7 @@
 				);
 				PRODUCT_NAME = OpenBOR;
 				USER_HEADER_SEARCH_PATHS = "../../../include $(SRCROOT)/** $(SRCROOT)/VPX.framework/Headers";
+				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};

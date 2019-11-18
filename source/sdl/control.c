@@ -942,7 +942,7 @@ void control_update(s_playercontrols ** playercontrols, int numplayers)
 		pcontrols->newkeyflags = k & (~pcontrols->keyflags);
 		pcontrols->keyflags = k;
 
-		printf("player=%i: hats: %d, axes: %d, data: %d \n",player,joysticks[player].Hats,joysticks[player].Axes,joysticks[player].Data);
+//		printf("player=%i: hats: %d, axes: %d, data: %d \n",player,joysticks[player].Hats,joysticks[player].Axes,joysticks[player].Data);
 	}
 }
 
