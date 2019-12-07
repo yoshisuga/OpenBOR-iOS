@@ -9,6 +9,8 @@
 #import "IOSUtils.h"
 #import <UIKit/UIKit.h>
 
+#import "OpenBOR-Swift.h"
+
 #include "ios-glue.h"
 
 void ios_get_base_path(char *path) {
@@ -18,6 +20,7 @@ void ios_get_base_path(char *path) {
     paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     DocumentsDirPath = [paths objectAtIndex:0];
     sprintf(path, "%s/", [DocumentsDirPath UTF8String]);
+    
 }
 
 void ios_get_screen_width_height(int *width, int *height) {

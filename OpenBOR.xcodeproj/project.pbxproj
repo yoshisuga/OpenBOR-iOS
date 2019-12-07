@@ -144,6 +144,8 @@
 		9281D56A1DFA5158004EA5CD /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9281D5671DFA5158004EA5CD /* libSDL2.a */; };
 		9281D56C1DFA5174004EA5CD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9281D56B1DFA5174004EA5CD /* AVFoundation.framework */; };
 		9281D5F71DFA52AB004EA5CD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9281D5F61DFA52AB004EA5CD /* libc++.tbd */; };
+		92D6E909239A3C670068B5A2 /* VirtualPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D6E908239A3C670068B5A2 /* VirtualPadViewController.swift */; };
+		92F4716623991CA200425384 /* DPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4716523991CA200425384 /* DPadView.swift */; };
 		945C4F53195AF17F00DBBF61 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 945C4F52195AF17F00DBBF61 /* Default-568h@2x.png */; };
 		FA8B4B97196703B400F8EB7C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8B4B96196703B400F8EB7C /* CoreMotion.framework */; };
 		FAE0E9651BAF967F0098DFA4 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE0E9641BAF967F0098DFA4 /* GameController.framework */; };
@@ -510,6 +512,9 @@
 		9281D56B1DFA5174004EA5CD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9281D5F41DFA5273004EA5CD /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		9281D5F61DFA52AB004EA5CD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		92D6E908239A3C670068B5A2 /* VirtualPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualPadViewController.swift; sourceTree = "<group>"; };
+		92F4716423991CA200425384 /* OpenBOR-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenBOR-Bridging-Header.h"; sourceTree = "<group>"; };
+		92F4716523991CA200425384 /* DPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPadView.swift; sourceTree = "<group>"; };
 		944A65681957463F0094A81E /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = ../../SDL/SDL.xcodeproj; sourceTree = "<group>"; };
 		945C4F52195AF17F00DBBF61 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA8B4B96196703B400F8EB7C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -560,6 +565,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				92F4716523991CA200425384 /* DPadView.swift */,
+				92D6E908239A3C670068B5A2 /* VirtualPadViewController.swift */,
 				945C4F52195AF17F00DBBF61 /* Default-568h@2x.png */,
 				921578CC237CAA0700F0AD25 /* openbor.c */,
 				921578CA237CAA0700F0AD25 /* openbor.h */,
@@ -575,6 +582,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				9215795A237DCCC000F0AD25 /* resources */,
+				92F4716423991CA200425384 /* OpenBOR-Bridging-Header.h */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -1126,6 +1134,7 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = R72X3BF4KE;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -1221,6 +1230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				921578C1237CA92E00F0AD25 /* adpcm.c in Sources */,
+				92F4716623991CA200425384 /* DPadView.swift in Sources */,
 				92157883237CA92E00F0AD25 /* transform.c in Sources */,
 				92157881237CA92E00F0AD25 /* draw16.c in Sources */,
 				92157959237DCC1700F0AD25 /* threads.c in Sources */,
@@ -1303,6 +1313,7 @@
 				921578A2237CA92E00F0AD25 /* scanline.c in Sources */,
 				921578B1237CA92E00F0AD25 /* collision_coordinates.c in Sources */,
 				92157889237CA92E00F0AD25 /* pixelformat.c in Sources */,
+				92D6E909239A3C670068B5A2 /* VirtualPadViewController.swift in Sources */,
 				921578B9237CA92E00F0AD25 /* index.c in Sources */,
 				92157957237DCC1700F0AD25 /* sblaster.c in Sources */,
 				9215786D237CA92E00F0AD25 /* Instruction.c in Sources */,
@@ -1326,6 +1337,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = R72X3BF4KE;
 				ENABLE_BITCODE = NO;
@@ -1344,7 +1356,8 @@
 					IOS,
 				);
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDL/lib",
@@ -1355,6 +1368,9 @@
 					"-Iwebmlib/nestegg/",
 				);
 				PRODUCT_NAME = OpenBOR;
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenBOR-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				USER_HEADER_SEARCH_PATHS = "../../../include $(SRCROOT)/** $(SRCROOT)/VPX.framework/Headers";
 				VALID_ARCHS = arm64;
 			};
@@ -1366,6 +1382,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = R72X3BF4KE;
 				ENABLE_BITCODE = NO;
@@ -1382,7 +1399,8 @@
 					IOS,
 				);
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDL/lib",
@@ -1393,6 +1411,8 @@
 					"-Iwebmlib/nestegg/",
 				);
 				PRODUCT_NAME = OpenBOR;
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenBOR-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				USER_HEADER_SEARCH_PATHS = "../../../include $(SRCROOT)/** $(SRCROOT)/VPX.framework/Headers";
 				VALID_ARCHS = arm64;
 			};
