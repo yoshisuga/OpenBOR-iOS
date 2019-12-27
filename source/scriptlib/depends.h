@@ -26,7 +26,7 @@ typedef char CHAR;
 typedef float FLOAT;
 typedef double DOUBLE;
 
-#ifndef WII
+#if !defined(WII) && !defined(__OBJC__)
 typedef int BOOL;
 #endif
 

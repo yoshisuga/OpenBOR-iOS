@@ -550,7 +550,11 @@ webm_context *webm_start_playback(const char *path, int volume)
     // set up video
     ctx->video_track = video_track;
     init_video(ctx->nestegg_ctx, ctx->video_track, &(ctx->video_ctx));
+#if IOS
+    ctx->the_video_thread = bor_thread_create(video_thread, "video", &(ctx->video_ctx));
+#else
     ctx->the_video_thread = thread_create(video_thread, "video", &(ctx->video_ctx));
+#endif
     assert(ctx->the_video_thread);
 
     // set up audio, if applicable
@@ -559,18 +563,30 @@ webm_context *webm_start_playback(const char *path, int volume)
     {
         // use the audio track of this file
         init_audio(ctx->nestegg_ctx, ctx->audio_track, &(ctx->audio_ctx), volume);
+#if IOS
+         ctx->the_audio_thread = bor_thread_create(audio_thread, "audio", &(ctx->audio_ctx));
+#else
         ctx->the_audio_thread = thread_create(audio_thread, "audio", &(ctx->audio_ctx));
+#endif
         assert(ctx->the_audio_thread);
     }
     else if (sound_query_music(NULL, NULL))
     {
         // continue to play the BGM that's already playing
+#if IOS
+        ctx->the_audio_thread = bor_thread_create(bgm_update_thread, "bgm", NULL);
+#else
         ctx->the_audio_thread = thread_create(bgm_update_thread, "bgm", NULL);
+#endif
         assert(ctx->the_audio_thread);
     }
 
     // finally, start the demuxing thread
+#if IOS
+    ctx->the_demux_thread = bor_thread_create(demux_thread, "demux", ctx);
+#else
     ctx->the_demux_thread = thread_create(demux_thread, "demux", ctx);
+#endif
     assert(ctx->the_demux_thread);
     return ctx;
 

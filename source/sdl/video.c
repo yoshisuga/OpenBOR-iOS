@@ -27,6 +27,10 @@
 #include "videocommon.h"
 #include "../resources/OpenBOR_Icon_32x32_png.h"
 
+#if IOS
+#include "ios-glue.h"
+#endif
+
 SDL_Window *window = NULL;
 static SDL_Renderer *renderer = NULL;
 static SDL_Texture *texture = NULL;
@@ -148,6 +152,10 @@ int SetVideoMode(int w, int h, int bpp, bool gl)
 			return 0;
 		}
 	}
+
+    #if IOS
+        ios_after_window_create(window);
+    #endif
 
 	return 1;
 }

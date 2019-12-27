@@ -11,7 +11,11 @@
 
 #include "threads.h"
 
+#if IOS
+bor_thread *bor_thread_create(int (*fn)(void *), const char *name, void *data)
+#else
 bor_thread *thread_create(int (*fn)(void *), const char *name, void *data)
+#endif
 {
 	return SDL_CreateThread(fn, name, data);
 }

@@ -144,8 +144,9 @@
 		9281D56A1DFA5158004EA5CD /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9281D5671DFA5158004EA5CD /* libSDL2.a */; };
 		9281D56C1DFA5174004EA5CD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9281D56B1DFA5174004EA5CD /* AVFoundation.framework */; };
 		9281D5F71DFA52AB004EA5CD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9281D5F61DFA52AB004EA5CD /* libc++.tbd */; };
-		92D6E909239A3C670068B5A2 /* VirtualPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D6E908239A3C670068B5A2 /* VirtualPadViewController.swift */; };
-		92F4716623991CA200425384 /* DPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4716523991CA200425384 /* DPadView.swift */; };
+		92D6E90F239CE4CF0068B5A2 /* TouchPadControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D6E90E239CE4CF0068B5A2 /* TouchPadControlsViewController.m */; };
+		92D6E912239CE8AD0068B5A2 /* DPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D6E911239CE8AD0068B5A2 /* DPadView.m */; };
+		92D6E915239CF1BF0068B5A2 /* VirtualControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D6E914239CF1BF0068B5A2 /* VirtualControlsView.m */; };
 		945C4F53195AF17F00DBBF61 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 945C4F52195AF17F00DBBF61 /* Default-568h@2x.png */; };
 		FA8B4B97196703B400F8EB7C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8B4B96196703B400F8EB7C /* CoreMotion.framework */; };
 		FAE0E9651BAF967F0098DFA4 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE0E9641BAF967F0098DFA4 /* GameController.framework */; };
@@ -512,9 +513,12 @@
 		9281D56B1DFA5174004EA5CD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9281D5F41DFA5273004EA5CD /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		9281D5F61DFA52AB004EA5CD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		92D6E908239A3C670068B5A2 /* VirtualPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualPadViewController.swift; sourceTree = "<group>"; };
-		92F4716423991CA200425384 /* OpenBOR-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenBOR-Bridging-Header.h"; sourceTree = "<group>"; };
-		92F4716523991CA200425384 /* DPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPadView.swift; sourceTree = "<group>"; };
+		92D6E90D239CE4CF0068B5A2 /* TouchPadControlsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchPadControlsViewController.h; sourceTree = "<group>"; };
+		92D6E90E239CE4CF0068B5A2 /* TouchPadControlsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchPadControlsViewController.m; sourceTree = "<group>"; };
+		92D6E910239CE8AD0068B5A2 /* DPadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPadView.h; sourceTree = "<group>"; };
+		92D6E911239CE8AD0068B5A2 /* DPadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPadView.m; sourceTree = "<group>"; };
+		92D6E913239CF1BF0068B5A2 /* VirtualControlsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VirtualControlsView.h; sourceTree = "<group>"; };
+		92D6E914239CF1BF0068B5A2 /* VirtualControlsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VirtualControlsView.m; sourceTree = "<group>"; };
 		944A65681957463F0094A81E /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = ../../SDL/SDL.xcodeproj; sourceTree = "<group>"; };
 		945C4F52195AF17F00DBBF61 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA8B4B96196703B400F8EB7C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -565,8 +569,12 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				92F4716523991CA200425384 /* DPadView.swift */,
-				92D6E908239A3C670068B5A2 /* VirtualPadViewController.swift */,
+				92D6E913239CF1BF0068B5A2 /* VirtualControlsView.h */,
+				92D6E914239CF1BF0068B5A2 /* VirtualControlsView.m */,
+				92D6E910239CE8AD0068B5A2 /* DPadView.h */,
+				92D6E911239CE8AD0068B5A2 /* DPadView.m */,
+				92D6E90D239CE4CF0068B5A2 /* TouchPadControlsViewController.h */,
+				92D6E90E239CE4CF0068B5A2 /* TouchPadControlsViewController.m */,
 				945C4F52195AF17F00DBBF61 /* Default-568h@2x.png */,
 				921578CC237CAA0700F0AD25 /* openbor.c */,
 				921578CA237CAA0700F0AD25 /* openbor.h */,
@@ -582,7 +590,6 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				9215795A237DCCC000F0AD25 /* resources */,
-				92F4716423991CA200425384 /* OpenBOR-Bridging-Header.h */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -1230,7 +1237,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				921578C1237CA92E00F0AD25 /* adpcm.c in Sources */,
-				92F4716623991CA200425384 /* DPadView.swift in Sources */,
 				92157883237CA92E00F0AD25 /* transform.c in Sources */,
 				92157881237CA92E00F0AD25 /* draw16.c in Sources */,
 				92157959237DCC1700F0AD25 /* threads.c in Sources */,
@@ -1258,6 +1264,7 @@
 				92157875237CA92E00F0AD25 /* ScriptVariant.c in Sources */,
 				92157886237CA92E00F0AD25 /* screen.c in Sources */,
 				9215789B237CA92E00F0AD25 /* dotmatrix.c in Sources */,
+				92D6E912239CE8AD0068B5A2 /* DPadView.m in Sources */,
 				92157877237CA92E00F0AD25 /* ram.c in Sources */,
 				921578C7237CA92E00F0AD25 /* samplecvt.c in Sources */,
 				921578BB237CA92E00F0AD25 /* collision_body.c in Sources */,
@@ -1271,6 +1278,7 @@
 				921578BA237CA92E00F0AD25 /* collision_entity.c in Sources */,
 				92157956237DCC1700F0AD25 /* opengl.c in Sources */,
 				9215786F237CA92E00F0AD25 /* Lexer.c in Sources */,
+				92D6E915239CF1BF0068B5A2 /* VirtualControlsView.m in Sources */,
 				921578BD237CA92E00F0AD25 /* layer.c in Sources */,
 				9215789F237CA92E00F0AD25 /* hq2x.c in Sources */,
 				9215786C237CA92E00F0AD25 /* Stack.c in Sources */,
@@ -1286,6 +1294,7 @@
 				9215788C237CA92E00F0AD25 /* anigif.c in Sources */,
 				92157953237DCC1700F0AD25 /* loadgl.c in Sources */,
 				92157890237CA92E00F0AD25 /* packfile.c in Sources */,
+				92D6E90F239CE4CF0068B5A2 /* TouchPadControlsViewController.m in Sources */,
 				921578AC237CA92E00F0AD25 /* pp_parser.c in Sources */,
 				921578A3237CA92E00F0AD25 /* pp_expr.c in Sources */,
 				921578CD237CAA0700F0AD25 /* openborscript.c in Sources */,
@@ -1313,7 +1322,6 @@
 				921578A2237CA92E00F0AD25 /* scanline.c in Sources */,
 				921578B1237CA92E00F0AD25 /* collision_coordinates.c in Sources */,
 				92157889237CA92E00F0AD25 /* pixelformat.c in Sources */,
-				92D6E909239A3C670068B5A2 /* VirtualPadViewController.swift in Sources */,
 				921578B9237CA92E00F0AD25 /* index.c in Sources */,
 				92157957237DCC1700F0AD25 /* sblaster.c in Sources */,
 				9215786D237CA92E00F0AD25 /* Instruction.c in Sources */,
@@ -1338,6 +1346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = R72X3BF4KE;
 				ENABLE_BITCODE = NO;
@@ -1383,6 +1392,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = R72X3BF4KE;
 				ENABLE_BITCODE = NO;

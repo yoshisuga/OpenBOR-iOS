@@ -8,10 +8,36 @@
 
 #import "IOSUtils.h"
 #import <UIKit/UIKit.h>
-
-#import "OpenBOR-Swift.h"
+#import "TouchPadControlsViewController.h"
 
 #include "ios-glue.h"
+
+unsigned ios_touchstates[MAXTOUCHB];
+
+UIViewController* GetSDLViewController(SDL_Window *sdlWindow) {
+    SDL_SysWMinfo systemWindowInfo;
+    SDL_VERSION(&systemWindowInfo.version);
+    if ( ! SDL_GetWindowWMInfo(sdlWindow, &systemWindowInfo)) {
+        // error handle?
+        return nil;
+    }
+    UIWindow *appWindow = systemWindowInfo.info.uikit.window;
+    UIViewController *rootVC = appWindow.rootViewController;
+    return rootVC;
+}
+
+void ios_after_window_create(SDL_Window *window) {
+    UIViewController *rootVC = GetSDLViewController(window);
+    TouchPadControlsViewController *padController = [[TouchPadControlsViewController alloc] init];
+    [rootVC addChildViewController:padController];
+    [rootVC.view addSubview:padController.view];
+    [padController didMoveToParentViewController:rootVC];
+    [rootVC.view.leadingAnchor constraintEqualToAnchor:padController.view.leadingAnchor].active = YES;
+    [rootVC.view.trailingAnchor constraintEqualToAnchor:padController.view.trailingAnchor].active = YES;
+    [rootVC.view.topAnchor constraintEqualToAnchor:padController.view.topAnchor].active = YES;
+    [rootVC.view.bottomAnchor constraintEqualToAnchor:padController.view.bottomAnchor].active = YES;
+    [rootVC.view bringSubviewToFront:padController.view];
+}
 
 void ios_get_base_path(char *path) {
     NSArray *paths;

@@ -31,7 +31,7 @@
 #define SKIP_CODE
 #endif
 
-#ifdef ANDROID
+#if ANDROID || IOS
 #define MAXTOUCHB 13
 #endif
 

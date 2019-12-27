@@ -22,6 +22,10 @@
 #include "jniutils.h"
 #endif
 
+#ifdef IOS
+#include "ios-glue.h"
+#endif
+
 SDL_Joystick *joystick[JOY_LIST_TOTAL];         // SDL struct for joysticks
 SDL_Haptic *joystick_haptic[JOY_LIST_TOTAL];   // SDL haptic for joysticks
 static int usejoy;						        // To be or Not to be used?
@@ -39,6 +43,18 @@ extern int nativeWidth;
 extern int nativeHeight;
 static TouchStatus touch_info;
 #endif
+
+char *int2bin(int a, char *buffer, int buf_size) {
+    buffer += (buf_size - 1);
+
+    for (int i = 31; i >= 0; i--) {
+        *buffer-- = (a & 1) + '0';
+
+        a >>= 1;
+    }
+
+    return buffer;
+}
 
 /*
 Here is where we aquiring all joystick events
@@ -316,6 +332,10 @@ void getPads(Uint8* keystate, Uint8* keystate_def)
                 if(hat_value & SDL_HAT_DOWN)    joysticks[i].Hats |= SDL_HAT_DOWN   << (j*4);
                 if(hat_value & SDL_HAT_LEFT)    joysticks[i].Hats |= SDL_HAT_LEFT   << (j*4);
             }
+            
+#if IOS
+            // update
+#endif
 
 			// combine axis, hat, and button state into a single value
 			joysticks[i].Data = joysticks[i].Buttons;
@@ -323,6 +343,12 @@ void getPads(Uint8* keystate, Uint8* keystate_def)
 			joysticks[i].Data |= joysticks[i].Hats << (joysticks[i].NumButtons + 2*joysticks[i].NumAxes);
 		}
 	}
+    
+    control_update_ios_touch(keystate, keystate_def);
+    char binString[33];
+    binString[32] = '\0';
+    int2bin(joysticks[0].Data, binString, 32);
+    printf("yoshi debug: joystick 0 data as bin: %s , int = %llu \n",binString,joysticks[0].Data);
 
 }
 
@@ -579,6 +605,47 @@ void control_setkey(s_playercontrols * pcontrols, unsigned int flag, int key)
 	pcontrols->settings[flag_to_index(flag)] = key;
 	pcontrols->keyflags = pcontrols->newkeyflags = 0;
 }
+
+#if IOS
+void control_update_ios_touch(Uint8* keystate, Uint8* keystate_def) {
+    //use default value for touch key mapping
+        // er need to update joystick vals here..
+    
+    joysticks[0].Buttons |= ios_touchstates[SDID_ATTACK] << 0;
+    joysticks[0].Buttons |= ios_touchstates[SDID_ATTACK2] << 1;
+    joysticks[0].Buttons |= ios_touchstates[SDID_ATTACK3] << 2;
+    joysticks[0].Buttons |= ios_touchstates[SDID_ATTACK4] << 3;
+    joysticks[0].Buttons |= ios_touchstates[SDID_JUMP] << 4;
+    joysticks[0].Buttons |= ios_touchstates[SDID_SPECIAL] << 5;
+    joysticks[0].Buttons |= ios_touchstates[SDID_START] << 6;
+    joysticks[0].Buttons |= ios_touchstates[SDID_ESC] << 7;
+    
+    joysticks[0].Hats |= ios_touchstates[SDID_MOVEUP] ? 1 : 0;
+    joysticks[0].Hats |= ios_touchstates[SDID_MOVERIGHT] ? 1 << 1 : 0;
+    joysticks[0].Hats |= ios_touchstates[SDID_MOVEDOWN] ? 1 << 2 : 0;
+    joysticks[0].Hats |= ios_touchstates[SDID_MOVELEFT] ? 1 << 3 : 0;
+    
+    // combine axis, hat, and button state into a single value
+    joysticks[0].Data = joysticks[0].Buttons;
+    joysticks[0].Data |= joysticks[0].Hats << 19;
+
+    // not working for iOS...
+    keystate_def[default_keys[SDID_MOVEUP]]    = ios_touchstates[SDID_MOVEUP];
+    keystate_def[default_keys[SDID_MOVEDOWN]]  = ios_touchstates[SDID_MOVEDOWN];
+    keystate_def[default_keys[SDID_MOVELEFT]]  = ios_touchstates[SDID_MOVELEFT];
+    keystate_def[default_keys[SDID_MOVERIGHT]] = ios_touchstates[SDID_MOVERIGHT];
+    keystate_def[default_keys[SDID_ATTACK]]    = ios_touchstates[SDID_ATTACK];
+    keystate_def[default_keys[SDID_ATTACK2]]   = ios_touchstates[SDID_ATTACK2];
+    keystate_def[default_keys[SDID_ATTACK3]]   = ios_touchstates[SDID_ATTACK3];
+    keystate_def[default_keys[SDID_ATTACK4]]   = ios_touchstates[SDID_ATTACK4];
+    keystate_def[default_keys[SDID_JUMP]]      = ios_touchstates[SDID_JUMP];
+    keystate_def[default_keys[SDID_SPECIAL]]   = ios_touchstates[SDID_SPECIAL];
+    keystate_def[default_keys[SDID_START]]     = ios_touchstates[SDID_START];
+    keystate_def[default_keys[SDID_SCREENSHOT]] = ios_touchstates[SDID_SCREENSHOT];
+
+    keystate[CONTROL_ESC] = keystate_def[CONTROL_ESC] = ios_touchstates[SDID_ESC];
+}
+#endif
 
 #if ANDROID
 /*
