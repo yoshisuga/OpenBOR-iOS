@@ -44,7 +44,7 @@
     NSInteger column = (NSInteger) x / (self.bounds.size.width / 3);
     NSInteger row = (NSInteger) y / (self.bounds.size.height / 3);
     DPadDirection direction = (row * 3) + column;
-    NSLog(@"dpaddirection = %lu",(unsigned long)direction);
+//    NSLog(@"dpaddirection = %lu",(unsigned long)direction);
     return direction;
 }
 

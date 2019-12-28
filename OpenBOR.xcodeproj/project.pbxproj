@@ -144,6 +144,7 @@
 		9281D56A1DFA5158004EA5CD /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9281D5671DFA5158004EA5CD /* libSDL2.a */; };
 		9281D56C1DFA5174004EA5CD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9281D56B1DFA5174004EA5CD /* AVFoundation.framework */; };
 		9281D5F71DFA52AB004EA5CD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9281D5F61DFA52AB004EA5CD /* libc++.tbd */; };
+		92ABF57F23B67ECF007FE747 /* GamepadButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ABF57E23B67ECE007FE747 /* GamepadButtonView.m */; };
 		92D6E90F239CE4CF0068B5A2 /* TouchPadControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D6E90E239CE4CF0068B5A2 /* TouchPadControlsViewController.m */; };
 		92D6E912239CE8AD0068B5A2 /* DPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D6E911239CE8AD0068B5A2 /* DPadView.m */; };
 		92D6E915239CF1BF0068B5A2 /* VirtualControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D6E914239CF1BF0068B5A2 /* VirtualControlsView.m */; };
@@ -513,6 +514,8 @@
 		9281D56B1DFA5174004EA5CD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9281D5F41DFA5273004EA5CD /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		9281D5F61DFA52AB004EA5CD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		92ABF57D23B67ECE007FE747 /* GamepadButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamepadButtonView.h; sourceTree = "<group>"; };
+		92ABF57E23B67ECE007FE747 /* GamepadButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamepadButtonView.m; sourceTree = "<group>"; };
 		92D6E90D239CE4CF0068B5A2 /* TouchPadControlsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchPadControlsViewController.h; sourceTree = "<group>"; };
 		92D6E90E239CE4CF0068B5A2 /* TouchPadControlsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchPadControlsViewController.m; sourceTree = "<group>"; };
 		92D6E910239CE8AD0068B5A2 /* DPadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPadView.h; sourceTree = "<group>"; };
@@ -569,6 +572,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				92ABF57D23B67ECE007FE747 /* GamepadButtonView.h */,
+				92ABF57E23B67ECE007FE747 /* GamepadButtonView.m */,
 				92D6E913239CF1BF0068B5A2 /* VirtualControlsView.h */,
 				92D6E914239CF1BF0068B5A2 /* VirtualControlsView.m */,
 				92D6E910239CE8AD0068B5A2 /* DPadView.h */,
@@ -1282,6 +1287,7 @@
 				921578BD237CA92E00F0AD25 /* layer.c in Sources */,
 				9215789F237CA92E00F0AD25 /* hq2x.c in Sources */,
 				9215786C237CA92E00F0AD25 /* Stack.c in Sources */,
+				92ABF57F23B67ECF007FE747 /* GamepadButtonView.m in Sources */,
 				92157950237DCC1700F0AD25 /* joysticks.c in Sources */,
 				92157878237CA92E00F0AD25 /* stringptr.c in Sources */,
 				9215794F237DCC1700F0AD25 /* video.c in Sources */,
@@ -1363,6 +1369,7 @@
 					LINUX,
 					SDL,
 					IOS,
+					WEBM,
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1407,6 +1414,7 @@
 					LINUX,
 					SDL,
 					IOS,
+					WEBM,
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
