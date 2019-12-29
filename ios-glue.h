@@ -17,5 +17,7 @@ extern unsigned ios_touchstates[MAXTOUCHB];
 void ios_get_base_path(char *path);
 void ios_get_screen_width_height(int *width, int *height);
 void ios_after_window_create(SDL_Window *window);
+void update_touch_controls_visibility(bool doHide);
+bool ios_controller_connected();
 
 #endif /* ios_glue_h */

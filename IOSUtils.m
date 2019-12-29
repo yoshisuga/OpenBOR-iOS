@@ -9,10 +9,12 @@
 #import "IOSUtils.h"
 #import <UIKit/UIKit.h>
 #import "TouchPadControlsViewController.h"
+#import <GameController/GameController.h>
 
 #include "ios-glue.h"
 
 unsigned ios_touchstates[MAXTOUCHB];
+TouchPadControlsViewController *touchPadController;
 
 UIViewController* GetSDLViewController(SDL_Window *sdlWindow) {
     SDL_SysWMinfo systemWindowInfo;
@@ -29,6 +31,7 @@ UIViewController* GetSDLViewController(SDL_Window *sdlWindow) {
 void ios_after_window_create(SDL_Window *window) {
     UIViewController *rootVC = GetSDLViewController(window);
     TouchPadControlsViewController *padController = [[TouchPadControlsViewController alloc] init];
+    touchPadController = padController;
     [rootVC addChildViewController:padController];
     [rootVC.view addSubview:padController.view];
     [padController didMoveToParentViewController:rootVC];
@@ -37,6 +40,17 @@ void ios_after_window_create(SDL_Window *window) {
     [rootVC.view.topAnchor constraintEqualToAnchor:padController.view.topAnchor].active = YES;
     [rootVC.view.bottomAnchor constraintEqualToAnchor:padController.view.bottomAnchor].active = YES;
     [rootVC.view bringSubviewToFront:padController.view];
+}
+
+bool ios_controller_connected() {
+    return [GCController controllers].count > 0;
+}
+
+void update_touch_controls_visibility(bool doHide) {
+    if ( touchPadController == nil ) {
+        return;
+    }
+    [touchPadController updateTouchControlsVisibility:doHide];
 }
 
 void ios_get_base_path(char *path) {

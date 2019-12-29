@@ -7,6 +7,7 @@
 
 #import "TouchPadControlsViewController.h"
 #import "VirtualControlsView.h"
+#import <GameController/GameController.h>
 
 #include "ios-glue.h"
 
@@ -38,12 +39,23 @@
     self.virtualControlsView.buttonSpecial.delegate = self;
     self.virtualControlsView.buttonEsc.delegate = self;
     self.virtualControlsView.buttonStart.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTouchControls:) name:GCControllerDidConnectNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTouchControls:) name:GCControllerDidDisconnectNotification object:nil];
+
+}
+
+-(void)updateTouchControls:(NSNotification*)notification {
+    self.virtualControlsView.hidden = [GCController controllers].count > 0;
+}
+
+-(void)updateTouchControlsVisibility:(BOOL)doHide {
+    self.virtualControlsView.hidden = doHide;
 }
 
 #pragma mark - DPadDelegate
 
 - (void)dPad:(nonnull DPadView *)dpad didPress:(DPadDirection)direction {
-    NSLog(@"did press with direction: %lu",(unsigned long)direction);
     switch (direction) {
         case kUp:
             ios_touchstates[SDID_MOVEUP] = 1;
@@ -90,7 +102,6 @@
 }
 
 - (void)dPadDidRelease:(nonnull DPadView *)dpad {
-    NSLog(@"did release pad!");
     ios_touchstates[SDID_MOVEUP] = 0;
     ios_touchstates[SDID_MOVELEFT] = 0;
     ios_touchstates[SDID_MOVERIGHT] = 0;
