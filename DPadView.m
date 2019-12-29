@@ -29,7 +29,7 @@
 -(void)commonInit {
     self.translatesAutoresizingMaskIntoConstraints = NO;
 //    self.backgroundColor = UIColor.blackColor;
-    self.alpha = 0.5f;
+//    self.alpha = 0.5f;
 //    self.layer.borderColor = UIColor.redColor.CGColor;
 //    self.layer.borderWidth = 2.0;
     self.clipsToBounds = NO;

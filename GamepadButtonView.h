@@ -18,10 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface GamepadButtonView : UIView
+
 @property(weak,nonatomic) id<GamepadButtonDelegate> delegate;
 @property(nonatomic,assign) e_key_id identifier;
 
 -(instancetype)initWithIdentifier:(e_key_id)identifier;
+-(void)setupButtonLabel;
+
 @end
 
 NS_ASSUME_NONNULL_END

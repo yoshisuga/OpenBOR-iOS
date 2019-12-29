@@ -42,7 +42,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTouchControls:) name:GCControllerDidConnectNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTouchControls:) name:GCControllerDidDisconnectNotification object:nil];
-
+    
+    self.view.alpha = 0.7f;
 }
 
 -(void)updateTouchControls:(NSNotification*)notification {
