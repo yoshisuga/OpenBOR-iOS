@@ -1,6 +1,5 @@
 //
 //  ios-glue.h
-//  xm8-ios
 //
 //  Created by Yoshi Sugawara on 12/12/16.
 //

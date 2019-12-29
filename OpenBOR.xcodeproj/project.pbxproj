@@ -572,14 +572,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				92ABF57D23B67ECE007FE747 /* GamepadButtonView.h */,
-				92ABF57E23B67ECE007FE747 /* GamepadButtonView.m */,
-				92D6E913239CF1BF0068B5A2 /* VirtualControlsView.h */,
-				92D6E914239CF1BF0068B5A2 /* VirtualControlsView.m */,
-				92D6E910239CE8AD0068B5A2 /* DPadView.h */,
-				92D6E911239CE8AD0068B5A2 /* DPadView.m */,
-				92D6E90D239CE4CF0068B5A2 /* TouchPadControlsViewController.h */,
-				92D6E90E239CE4CF0068B5A2 /* TouchPadControlsViewController.m */,
+				92ABF58523B8B609007FE747 /* Touchscreen Controls */,
 				945C4F52195AF17F00DBBF61 /* Default-568h@2x.png */,
 				921578CC237CAA0700F0AD25 /* openbor.c */,
 				921578CA237CAA0700F0AD25 /* openbor.h */,
@@ -1105,6 +1098,21 @@
 				9281D5671DFA5158004EA5CD /* libSDL2.a */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		92ABF58523B8B609007FE747 /* Touchscreen Controls */ = {
+			isa = PBXGroup;
+			children = (
+				92ABF57D23B67ECE007FE747 /* GamepadButtonView.h */,
+				92ABF57E23B67ECE007FE747 /* GamepadButtonView.m */,
+				92D6E913239CF1BF0068B5A2 /* VirtualControlsView.h */,
+				92D6E914239CF1BF0068B5A2 /* VirtualControlsView.m */,
+				92D6E910239CE8AD0068B5A2 /* DPadView.h */,
+				92D6E911239CE8AD0068B5A2 /* DPadView.m */,
+				92D6E90D239CE4CF0068B5A2 /* TouchPadControlsViewController.h */,
+				92D6E90E239CE4CF0068B5A2 /* TouchPadControlsViewController.m */,
+			);
+			name = "Touchscreen Controls";
 			sourceTree = "<group>";
 		};
 		944A65691957463F0094A81E /* Products */ = {
