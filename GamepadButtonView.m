@@ -54,6 +54,7 @@
     self.buttonName = [[UILabel alloc] initWithFrame:CGRectZero];
     self.buttonName.translatesAutoresizingMaskIntoConstraints = NO;
     self.buttonName.textColor = UIColor.blueColor;
+    self.buttonName.font = [UIFont systemFontOfSize:9.0f weight:UIFontWeightBold];
     [self addSubview:self.buttonName];
     [self.buttonName.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
     [self.buttonName.centerYAnchor constraintEqualToAnchor:self.centerYAnchor].active = YES;
